@@ -16,3 +16,21 @@
 - [გრაფიკები და Kaggle score screenshots](docs/images/)
 
 ყველა მოდელის დეტალური cleaning, feature engineering, validation, tuning, MLflow და inference აღწერილია შესაბამის README-ში.
+
+## Kaggle submission screenshots
+
+### CatBoost
+
+![CatBoost Kaggle score](docs/images/submission_catboost.png)
+
+### Prophet
+
+![Prophet Kaggle score](docs/images/submission_prophet.png)
+
+### TimeXer
+
+![TimeXer Kaggle score](docs/images/submission_timexer.png)
+
+### DLinear
+
+![DLinear Kaggle score](docs/images/submission_dlinear.png)
