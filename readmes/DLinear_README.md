@@ -20,13 +20,18 @@ Kaggle Walmart Recruiting - Store Sales Forecasting კონკურსის 
 |   |-- features.py
 |   |-- cv_split.py
 |   `-- wmae.py
-|-- model_experiment_CatBoost.ipynb
-|-- model_experiment_DLinear.ipynb
-|-- model_experiment_Prophet.ipynb
-|-- model_experiment_TimeXer.ipynb
-|-- model_inference.ipynb
-|-- CatBoost_README.md
-`-- DLinear_README.md
+|-- experiments/
+|   |-- model_experiment_CatBoost.ipynb
+|   |-- model_experiment_DLinear.ipynb
+|   |-- model_experiment_Prophet.ipynb
+|   |-- model_experiment_TimeXer.ipynb
+|   `-- model_inference.ipynb
+|-- readmes/
+|   |-- CatBoost_README.md
+|   |-- DLinear_README.md
+|   |-- Prophet_README.md
+|   `-- TimeXer_README.md
+`-- README.md
 ```
 
 `src/features.py` შეიცავს საერთო cleaning და feature engineering ლოგიკას, `src/cv_split.py` - time-based split-ებს, ხოლო `src/wmae.py` - კონკურსის ოფიციალურ მეტრიკას.
@@ -51,7 +56,7 @@ DLinear არ არის Transformer და მასში არ არი�
 
 DLinear-ისთვის გამოვიყენეთ იგივე EDA, რაც CatBoost-ისთვის, რადგან მონაცემთა საერთო კანონზომიერებები ორივე მოდელს ეხება.
 
-![DLinear EDA summary](docs/images/catboost_eda_summary.png)
+![DLinear EDA summary](../docs/images/catboost_eda_summary.png)
 
 EDA-მ გვაჩვენა ოთხი მნიშვნელოვანი კანონზომიერება:
 
@@ -60,7 +65,7 @@ EDA-მ გვაჩვენა ოთხი მნიშვნელოვა�
 3. MarkDown მონაცემები მხოლოდ 2011 წლის ნოემბრიდან ჩნდება და მანამდე თითქმის მთლიანად missing-ია.
 4. წლის ბოლოს, განსაკუთრებით Thanksgiving/Christmas-ის გარშემო, total sales მკვეთრად იზრდება.
 
-![DLinear seasonality and target distribution](docs/images/catboost_seasonality_distribution.png)
+![DLinear seasonality and target distribution](../docs/images/catboost_seasonality_distribution.png)
 
 Week-of-year გრაფიკზე ყველაზე ძლიერი ზრდა 47-ე და 51-ე კვირების გარშემო ჩანს. ეს DLinear-ისთვის მნიშვნელოვანია, რადგან სეზონურობა პირდაპირ ისტორიულ გაყიდვებში უნდა ისწავლოს. ამიტომ გამოვიყენეთ 52-კვირიანი lookback, რათა მოდელს დაახლოებით ერთი სრული წლის ისტორია ჰქონოდა.
 
@@ -140,9 +145,9 @@ Validation:       2012-02-03 - 2012-10-26
 
 ## Hyperparameter Tuning
 
-![DLinear tuning results](docs/images/dlinear_tuning.png)
+![DLinear tuning results](../docs/images/dlinear_tuning.png)
 
-![DLinear training curves](docs/images/dlinear_training_curves.png)
+![DLinear training curves](../docs/images/dlinear_training_curves.png)
 
 შევადარეთ ოთხი configuration. ყველა trial-ში lookback იყო 52 კვირა და forecast horizon - 39 კვირა. იცვლებოდა moving-average kernel-ის ზომა, learning rate და future calendar/Markdown features-ის გამოყენება.
 
@@ -178,6 +183,8 @@ DLinear-ის გამოყენებისას არ შეგვეძ
 **გამოსწორება:** მოდელი იღებს მხოლოდ origin-მდე ბოლო 52 კვირის გაყიდვებს და ერთდროულად აბრუნებს შემდეგ 39 კვირას. future features-ში შევიტანეთ მხოლოდ წინასწარ ცნობილი კალენდარული, holiday და Markdown ნიშნები.
 
 ## ექსპერიმენტების შედეგები
+
+![DLinear Kaggle score](../docs/images/submission_dlinear.png)
 
 | ექსპერიმენტი | შედეგი |
 |---|---:|
@@ -244,7 +251,3 @@ Pipeline იღებს raw merged test dataframe-ს და თვითონ
 2. Store-Dept წყვილების ცალკე სერიებად დამუშავება და ინდივიდუალური ნორმალიზაცია აუცილებელია.
 3. calendar და holiday features DLinear-ს ეხმარება.
 4. DLinear-ის local validation შედეგი უკეთესია, ვიდრე საბოლოო Kaggle score, რაც აჩვენებს, რომ holiday spike-ები და კონკრეტული test პერიოდის სტრუქტურა რთულად პროგნოზირებადია.
-
-
-## Kaggle Submission
-![alt text](image-3.png)

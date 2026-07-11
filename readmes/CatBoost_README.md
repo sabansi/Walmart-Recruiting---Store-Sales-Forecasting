@@ -21,12 +21,18 @@ Kaggle Walmart Recruiting - Store Sales Forecasting კონკურსის 
 |   |-- features.py
 |   |-- cv_split.py
 |   `-- wmae.py
-|-- model_experiment_CatBoost.ipynb
-|-- model_experiment_DLinear.ipynb
-|-- model_experiment_Prophet.ipynb
-|-- model_experiment_TimeXer.ipynb
-|-- model_inference.ipynb
-`-- CatBoost_README.md
+|-- experiments/
+|   |-- model_experiment_CatBoost.ipynb
+|   |-- model_experiment_DLinear.ipynb
+|   |-- model_experiment_Prophet.ipynb
+|   |-- model_experiment_TimeXer.ipynb
+|   `-- model_inference.ipynb
+|-- readmes/
+|   |-- CatBoost_README.md
+|   |-- DLinear_README.md
+|   |-- Prophet_README.md
+|   `-- TimeXer_README.md
+`-- README.md
 ```
 
 `src/features.py` შეიცავს საერთო cleaning და feature engineering ლოგიკას, `src/cv_split.py` - time-based split-ებს, ხოლო `src/wmae.py` - კონკურსის ოფიციალურ მეტრიკას.
@@ -63,7 +69,7 @@ XGBoost-ის გამოყენების შემთხვევაშ�
 
 ## EDA
 
-![CatBoost EDA summary](docs/images/catboost_eda_summary.png)
+![CatBoost EDA summary](../docs/images/catboost_eda_summary.png)
 
 EDA-მ გვაჩვენა ოთხი მნიშვნელოვანი კანონზომიერება:
 
@@ -72,7 +78,7 @@ EDA-მ გვაჩვენა ოთხი მნიშვნელოვა�
 3. MarkDown მონაცემები მხოლოდ 2011 წლის ნოემბრიდან ჩნდება და მანამდე თითქმის მთლიანად missing-ია.
 4. წლის ბოლოს, განსაკუთრებით Thanksgiving/Christmas-ის გარშემო, total sales მკვეთრად იზრდება.
 
-![CatBoost seasonality and target distribution](docs/images/catboost_seasonality_distribution.png)
+![CatBoost seasonality and target distribution](../docs/images/catboost_seasonality_distribution.png)
 
 Week-of-year გრაფიკზე ყველაზე ძლიერი ზრდა 47-ე და 51-ე კვირების გარშემო ჩანს. `Weekly_Sales` მარჯვნივ საკმაოდ არათანაბარია.
 
@@ -125,11 +131,11 @@ Feature-ები ჯგუფებად დავყავით:
 
 ## Feature Selection
 
-![CatBoost feature importance](docs/images/catboost_feature_importance.png)
+![CatBoost feature importance](../docs/images/catboost_feature_importance.png)
 
 Feature importance ადასტურებს EDA-ს დასკვნას: `Sales_Lag52_Origin` ყველაზე ძლიერი predictor-ია. შემდეგ მოდის origin-ზე გამოთვლილი rolling საშუალოები და spread/statistical ნიშნები. ეს ნიშნავს, რომ Walmart-ის ამ მონაცემებში annual seasonality უფრო ძლიერია, ვიდრე მხოლოდ ეკონომიკური ან markdown ცვლადები.
 
-![CatBoost correlation matrix](docs/images/catboost_correlation.png)
+![CatBoost correlation matrix](../docs/images/catboost_correlation.png)
 
 ## Validation სტრატეგია
 
@@ -139,7 +145,7 @@ Validation horizon კონკურსის 39 კვირიან test hor
 
 ## Hyperparameter Tuning
 
-![CatBoost hyperparameter tuning](docs/images/catboost_tuning.png)
+![CatBoost hyperparameter tuning](../docs/images/catboost_tuning.png)
 
 პირველ ეტაპზე ჩავატარეთ სტანდარტული hyperparameter tuning, სადაც კონკრეტულ 13-კვირიან validation პერიოდზე ვცვლიდით `depth`, `learning_rate` და `l2_leaf_reg` პარამეტრებს. ამ ექსპერიმენტში საუკეთესო შედეგი `depth=6`-მა აჩვენა. ეს შედეგი მხოლოდ ამ კონკრეტულ validation cutoff-სა და tuning setup-ს ეხება.
 
@@ -205,6 +211,8 @@ Local validation და Kaggle სხვადასხვა კალენდ
 **გამოსწორება:** შევადარეთ seasonal naive, raw CatBoost, residual ვარიანტები. საბოლოო არჩევანი მხოლოდ ერთი tuning table-ით არ გაგვიკეთებია.
 
 ## ექსპერიმენტების შედეგები
+
+![CatBoost Kaggle score](../docs/images/submission_catboost.png)
 
 | ექსპერიმენტი | შედეგი |
 |---|---:|
