@@ -1,27 +1,5 @@
 # Walmart Recruiting - Store Sales Forecasting
 
-## რეპოზიტორიის სტრუქტურა
-
-```text
-.
-|-- src/
-|   |-- features.py
-|   |-- cv_split.py
-|   `-- wmae.py
-|-- experiments/
-|   |-- model_experiment_CatBoost.ipynb
-|   |-- model_experiment_TiDE.ipynb
-|   `-- model_inference.ipynb
-|-- readmes/
-|   |-- CatBoost_README.md
-|   `-- TiDE_README.md
-|-- docs/
-|   `-- images/
-|       |-- tide_model_comparison.png
-|       `-- tide_forecasts.png
-`-- README.md
-```
-
 `src/features.py` შეიცავს მონაცემების გაერთიანების, cleaning-ისა და საერთო feature engineering-ის ფუნქციებს. `src/wmae.py` შეიცავს კონკურსის ოფიციალურ WMAE მეტრიკას.
 
 TiDE-ის notebook იყენებს `features.py`-დან მხოლოდ იმ ნიშნებს, რომლებიც პროგნოზის მომენტში ხელმისაწვდომია. ჩვეულებრივი lag და rolling feature-ები ცალკე სვეტებად არ იქმნება, რადგან გაყიდვების ისტორია მოდელს პირდაპირ sequence-ის სახით მიეწოდება.
@@ -262,7 +240,7 @@ Early stopping-ისას ბოლო epoch-ის ნაცვლად ი�
 2. **Compact** — ნაკლები hidden dimension, პატარა projection და decoder;
 3. **Wide** — უფრო ღრმა და ფართო representation.
 
-![TiDE configuration comparison](../docs/images/tide_model_comparison.png)
+<img width="1390" height="790" alt="image" src="https://github.com/user-attachments/assets/387f0976-7c0a-4658-88f1-a0fe740c6b3f" />
 
 ### კონფიგურაციების შედარება
 
