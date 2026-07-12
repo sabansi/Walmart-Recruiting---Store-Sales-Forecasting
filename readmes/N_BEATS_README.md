@@ -1,5 +1,9 @@
 # N-BEATS — Walmart Store Sales Forecasting
 
+MLFlow experiments:
+
+https://dagshub.com/sansi23/Walmart-Recruiting---Store-Sales-Forecasting.mlflow/#/experiments/5/runs?searchFilter=&orderByKey=attributes.start_time&orderByAsc=false&startTime=ALL&lifecycleFilter=Active&modelVersionFilter=All+Runs&datasetsFilter=W10%3D
+
 ## პროექტის აღწერა
 
 ეს პროექტი შექმნილია Kaggle-ის კონკურსისთვის **Walmart Recruiting — Store Sales Forecasting**.  
