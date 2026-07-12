@@ -1,5 +1,8 @@
 # Walmart Recruiting - Store Sales Forecasting
 
+MLFlow experiments:
+(https://dagshub.com/sansi23/Walmart-Recruiting---Store-Sales-Forecasting.mlflow/#/experiments/8/runs?searchFilter=&orderByKey=attributes.start_time&orderByAsc=false&startTime=ALL&lifecycleFilter=Active&modelVersionFilter=All+Runs&datasetsFilter=W10%3D)
+
 `src/features.py` შეიცავს მონაცემების გაერთიანების, cleaning-ისა და საერთო feature engineering-ის ფუნქციებს. `src/wmae.py` შეიცავს კონკურსის ოფიციალურ WMAE მეტრიკას.
 
 TiDE-ის notebook იყენებს `features.py`-დან მხოლოდ იმ ნიშნებს, რომლებიც პროგნოზის მომენტში ხელმისაწვდომია. ჩვეულებრივი lag და rolling feature-ები ცალკე სვეტებად არ იქმნება, რადგან გაყიდვების ისტორია მოდელს პირდაპირ sequence-ის სახით მიეწოდება.
