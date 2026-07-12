@@ -8,6 +8,7 @@
 - [DLinear](readmes/DLinear_README.md)
 - [Prophet](readmes/Prophet_README.md)
 - [TimeXer](readmes/TimeXer_README.md)
+  
 
 ## ექსპერიმენტები
 
@@ -34,3 +35,16 @@
 ### DLinear
 
 ![DLinear Kaggle score](docs/images/submission_dlinear.png)
+
+
+### LightGBM
+
+<img width="1367" height="108" alt="image" src="https://github.com/user-attachments/assets/22b4e623-7cf1-4ea8-a57f-b58458d16b29" />
+
+### N_BEATS
+
+<img width="1344" height="116" alt="image" src="https://github.com/user-attachments/assets/192fea17-7024-4958-8073-e739a7bb0187" />
+
+### TiDE
+
+<img width="1349" height="105" alt="image" src="https://github.com/user-attachments/assets/82ac8db1-8180-4eed-873e-f6af444a08d3" />
