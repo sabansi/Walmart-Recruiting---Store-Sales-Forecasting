@@ -4,7 +4,7 @@
 
 
 ## ექსპერიმენტები
-
+- [MLFlow experiments](https://dagshub.com/sansi23/Walmart-Recruiting---Store-Sales-Forecasting)
 - [Model experiments და inference notebooks](experiments/)
 - [საერთო feature engineering და metric კოდი](src/)
 - [გრაფიკები და Kaggle score screenshots](docs/images/)
