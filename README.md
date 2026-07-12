@@ -82,7 +82,7 @@
 საბოლოოდ, მოდელის არქიტექტურაზე არანაკლებ მნიშვნელოვანი აღმოჩნდა მონაცემების სწორად მომზადება, time-based validation, leakage-ის თავიდან აცილება და Kaggle-ის ოფიციალური WMAE მეტრიკის ზუსტად გამოყენება.
 
 
-## Kaggle submission screenshots
+## Kaggle submissions
 
 ### CatBoost
 
