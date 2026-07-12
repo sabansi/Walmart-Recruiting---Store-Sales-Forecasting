@@ -188,8 +188,8 @@ def build_lag_features(df):
 
 def add_origin_style_features(target_df, history_df, origin_date=None):
     """
-    Add lag/rolling features to `target_df` (validation OR real test rows) using
-    ONLY information available as of `origin_date` (defaults to history_df's max
+    Add lag/rolling features to target_df (validation OR real test rows) using
+    ONLY information available as of origin_date (defaults to history_df's max
     date) — i.e. what a direct multi-horizon forecaster genuinely has access to.
 
     - Sales_Lag52 is computed correctly per row: history reaches back far enough
@@ -264,7 +264,7 @@ def build_origin_training_frame(
     Build supervised CatBoost rows that match real forecast-time feature availability.
 
     Each candidate origin date uses only rows at or before that origin as history,
-    then creates labeled examples for the next `horizon_weeks` known target weeks.
+    then creates labeled examples for the next horizon_weeks known target weeks.
     The resulting rows use the same origin-style lag/rolling columns produced for
     validation and Kaggle test by add_origin_style_features().
 
